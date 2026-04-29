@@ -8,6 +8,13 @@ const MESSAGE = encodeURIComponent(
 
 const FloatingActions = () => (
   <>
+    {/* Trust badge (desktop) */}
+    <div className="fixed bottom-24 right-6 z-40 hidden md:block">
+      <div className="bg-foreground text-background text-[10px] px-3 py-1 rounded-full shadow-luxe">
+        Fast response within 24h
+      </div>
+    </div>
+
     {/* WhatsApp */}
     <a
       href={`https://wa.me/${WHATSAPP}?text=${MESSAGE}`}
