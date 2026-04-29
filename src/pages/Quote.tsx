@@ -2,6 +2,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { ArrowUpRight, MessageCircle, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 const schema = z.object({
   name: z.string().trim().min(2, "Please enter your full name").max(100),
@@ -29,8 +30,9 @@ const fieldClass =
 const Quote = () => {
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const fd = new FormData(e.currentTarget);
     const data = Object.fromEntries(fd.entries());
@@ -43,6 +45,23 @@ const Quote = () => {
       return;
     }
     setErrors({});
+    setSubmitting(true);
+    const { error } = await supabase.from("leads").insert({
+      name: parsed.data.name,
+      email: parsed.data.email,
+      phone: parsed.data.phone,
+      location: parsed.data.location,
+      project_type: parsed.data.projectType,
+      service: parsed.data.service,
+      budget: parsed.data.budget,
+      notes: parsed.data.notes || null,
+      source: "quote_form",
+    });
+    setSubmitting(false);
+    if (error) {
+      toast.error("Could not send your request. Please try again.");
+      return;
+    }
     setSubmitted(true);
     toast.success("Quote request sent. We'll be in touch within 1 business day.");
   };
@@ -120,9 +139,10 @@ const Quote = () => {
 
               <button
                 type="submit"
+                disabled={submitting}
                 className="group inline-flex items-center gap-3 bg-foreground px-10 py-5 text-xs uppercase tracking-[0.28em] text-background transition-all duration-500 hover:bg-accent"
               >
-                Request Design Consultation
+                {submitting ? "Sending…" : "Request Design Consultation"}
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </button>
 
