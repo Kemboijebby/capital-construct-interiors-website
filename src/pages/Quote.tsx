@@ -76,10 +76,23 @@ const Quote = () => {
           {submitted ? (
             <div className="border border-border p-12 text-center animate-fade-in">
               <CheckCircle2 className="h-12 w-12 text-accent mx-auto" />
-              <h2 className="font-display text-4xl mt-6">Thank you.</h2>
+              <h2 className="font-display text-4xl mt-6">Request received.</h2>
               <p className="mt-4 text-muted-foreground">
-                Your request has been received. A member of the studio will be in touch shortly.
+                A senior designer will review your project and respond within <strong>24 hours</strong> with a tailored direction and estimate.
               </p>
+              <div className="mt-8 space-y-3 text-sm text-muted-foreground">
+                <p>✔ Expect a WhatsApp or email response</p>
+                <p>✔ You may be asked for a site visit</p>
+                <p>✔ We only take a limited number of active projects</p>
+              </div>
+              <a
+                href={`https://wa.me/${WHATSAPP}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-10 inline-flex items-center gap-3 bg-foreground px-8 py-4 text-xs uppercase tracking-[0.22em] text-background hover:bg-accent transition-colors"
+              >
+                Follow up on WhatsApp
+              </a>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-10" noValidate>
