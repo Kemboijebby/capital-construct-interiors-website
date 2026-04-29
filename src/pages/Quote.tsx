@@ -122,7 +122,7 @@ const Quote = () => {
                 type="submit"
                 className="group inline-flex items-center gap-3 bg-foreground px-10 py-5 text-xs uppercase tracking-[0.28em] text-background transition-all duration-500 hover:bg-accent"
               >
-                Send Request
+                Request Design Consultation
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </button>
 
