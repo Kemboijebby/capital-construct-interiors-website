@@ -2,7 +2,9 @@ import { MessageCircle, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const WHATSAPP = "15550102200"; // digits only
-const MESSAGE = encodeURIComponent("Hi Capital Construct Interiors, I'd like to request a quote.");
+const MESSAGE = encodeURIComponent(
+  "Hi Capital Construct Interiors, I'm interested in a premium interior design project. I'd like a quote and consultation for my space."
+);
 
 const FloatingActions = () => (
   <>
