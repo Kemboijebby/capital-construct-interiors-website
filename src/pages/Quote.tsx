@@ -125,6 +125,10 @@ const Quote = () => {
                 Send Request
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </button>
+
+              <p className="text-xs text-muted-foreground">
+                We typically respond only to serious inquiries with clear project scope.
+              </p>
             </form>
           )}
         </div>
