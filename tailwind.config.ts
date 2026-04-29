@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ['"Cormorant Garamond"', "Times New Roman", "serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,6 +61,22 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        brand: {
+          ivory: "hsl(var(--brand-ivory))",
+          cream: "hsl(var(--brand-cream))",
+          stone: "hsl(var(--brand-stone))",
+          bronze: "hsl(var(--brand-bronze))",
+          "bronze-deep": "hsl(var(--brand-bronze-deep))",
+          charcoal: "hsl(var(--brand-charcoal))",
+        },
+      },
+      backgroundImage: {
+        "gradient-hero": "var(--gradient-hero)",
+        "gradient-bronze": "var(--gradient-bronze)",
+      },
+      boxShadow: {
+        luxe: "var(--shadow-luxe)",
+        card: "var(--shadow-card)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -80,10 +100,25 @@ export default {
             height: "0",
           },
         },
+        "fade-in": {
+          "0%": { opacity: "0", transform: "translateY(16px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in-slow": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "scale-in": {
+          "0%": { opacity: "0", transform: "scale(1.04)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.8s cubic-bezier(0.22,1,0.36,1) both",
+        "fade-in-slow": "fade-in-slow 1.4s ease-out both",
+        "scale-in": "scale-in 1.2s cubic-bezier(0.22,1,0.36,1) both",
       },
     },
   },
