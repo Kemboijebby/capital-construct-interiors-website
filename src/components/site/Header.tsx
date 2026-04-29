@@ -60,7 +60,7 @@ const Header = () => {
             to="/quote"
             className="hidden md:inline-flex items-center justify-center bg-foreground px-6 py-3 text-xs uppercase tracking-[0.22em] text-background transition-all duration-500 hover:bg-accent hover:tracking-[0.3em]"
           >
-            Request Quote
+            Get Free Design Quote
           </Link>
           <button
             aria-label="Toggle menu"
@@ -95,7 +95,7 @@ const Header = () => {
             to="/quote"
             className="mt-2 inline-flex w-fit items-center bg-foreground px-6 py-3 text-xs uppercase tracking-[0.22em] text-background"
           >
-            Request Quote
+            Get Free Design Quote
           </Link>
         </div>
       </div>

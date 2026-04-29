@@ -37,7 +37,7 @@ const Home = () => {
               to="/quote"
               className="group inline-flex items-center gap-3 bg-brand-ivory px-8 py-4 text-xs uppercase tracking-[0.28em] text-brand-charcoal transition-all duration-500 hover:bg-accent hover:text-accent-foreground"
             >
-              Request Quote
+              Get Free Design Quote
               <ArrowUpRight className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
             <Link to="/projects" className="text-sm tracking-wide text-brand-ivory/90 link-underline">
@@ -102,7 +102,7 @@ const Home = () => {
                   to="/quote"
                   className="mt-8 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] group-hover:text-accent transition-colors"
                 >
-                  Request Quote <ArrowUpRight className="h-3.5 w-3.5" />
+                  Get Free Design Quote <ArrowUpRight className="h-3.5 w-3.5" />
                 </Link>
               </article>
             ))}
@@ -224,7 +224,7 @@ const Home = () => {
             to="/quote"
             className="mt-12 inline-flex items-center gap-3 bg-brand-ivory px-10 py-5 text-xs uppercase tracking-[0.28em] text-brand-charcoal transition-all duration-500 hover:bg-accent hover:text-accent-foreground"
           >
-            Request Quote <ArrowUpRight className="h-4 w-4" />
+            Get Free Design Quote <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
       </section>

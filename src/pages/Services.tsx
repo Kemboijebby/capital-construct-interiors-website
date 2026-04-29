@@ -28,7 +28,7 @@ const Services = () => (
               {s.summary}
             </p>
             <Link to="/quote" className="mt-8 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] group-hover:text-accent transition-colors">
-              Request Quote <ArrowUpRight className="h-3.5 w-3.5" />
+              Get Free Design Quote <ArrowUpRight className="h-3.5 w-3.5" />
             </Link>
           </article>
         ))}

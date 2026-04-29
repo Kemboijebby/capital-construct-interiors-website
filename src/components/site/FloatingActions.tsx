@@ -25,7 +25,7 @@ const FloatingActions = () => (
       to="/quote"
       className="md:hidden fixed bottom-6 left-6 z-40 inline-flex items-center gap-2 bg-foreground px-5 py-3 text-[11px] uppercase tracking-[0.22em] text-background shadow-luxe"
     >
-      Request Quote <ArrowUpRight className="h-3.5 w-3.5" />
+      Get Free Design Quote <ArrowUpRight className="h-3.5 w-3.5" />
     </Link>
   </>
 );
