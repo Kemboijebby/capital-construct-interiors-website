@@ -14,7 +14,101 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      lead_activities: {
+        Row: {
+          author_id: string | null
+          body: string
+          created_at: string
+          id: string
+          kind: string
+          lead_id: string
+        }
+        Insert: {
+          author_id?: string | null
+          body: string
+          created_at?: string
+          id?: string
+          kind?: string
+          lead_id: string
+        }
+        Update: {
+          author_id?: string | null
+          body?: string
+          created_at?: string
+          id?: string
+          kind?: string
+          lead_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lead_activities_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "leads"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      leads: {
+        Row: {
+          budget: string | null
+          created_at: string
+          email: string
+          estimated_revenue: number
+          follow_up_at: string | null
+          id: string
+          location: string | null
+          name: string
+          notes: string | null
+          owner_id: string | null
+          phone: string | null
+          project_type: string | null
+          score: number
+          service: string | null
+          source: string
+          stage: Database["public"]["Enums"]["lead_stage"]
+          updated_at: string
+        }
+        Insert: {
+          budget?: string | null
+          created_at?: string
+          email: string
+          estimated_revenue?: number
+          follow_up_at?: string | null
+          id?: string
+          location?: string | null
+          name: string
+          notes?: string | null
+          owner_id?: string | null
+          phone?: string | null
+          project_type?: string | null
+          score?: number
+          service?: string | null
+          source?: string
+          stage?: Database["public"]["Enums"]["lead_stage"]
+          updated_at?: string
+        }
+        Update: {
+          budget?: string | null
+          created_at?: string
+          email?: string
+          estimated_revenue?: number
+          follow_up_at?: string | null
+          id?: string
+          location?: string | null
+          name?: string
+          notes?: string | null
+          owner_id?: string | null
+          phone?: string | null
+          project_type?: string | null
+          score?: number
+          service?: string | null
+          source?: string
+          stage?: Database["public"]["Enums"]["lead_stage"]
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
@@ -23,7 +117,13 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      lead_stage:
+        | "new"
+        | "qualified"
+        | "consultation"
+        | "proposal"
+        | "won"
+        | "lost"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +250,15 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      lead_stage: [
+        "new",
+        "qualified",
+        "consultation",
+        "proposal",
+        "won",
+        "lost",
+      ],
+    },
   },
 } as const
