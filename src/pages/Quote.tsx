@@ -62,7 +62,7 @@ const Quote = () => {
           </p>
 
           <a
-            href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hi Capital Construct Interiors, I'd like to request a quote.")}`}
+            href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hi Capital Construct Interiors, I'm interested in a premium interior design project. I'd like a quote and consultation for my space.")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 border border-border px-6 py-4 text-xs uppercase tracking-[0.22em] hover:border-accent hover:text-accent transition-colors"
