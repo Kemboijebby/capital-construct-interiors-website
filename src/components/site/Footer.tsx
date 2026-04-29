@@ -15,7 +15,7 @@ const Footer = () => (
           to="/quote"
           className="inline-flex items-center bg-brand-ivory px-6 py-3 text-[11px] uppercase tracking-[0.28em] text-brand-charcoal transition-all duration-500 hover:bg-accent hover:text-accent-foreground"
         >
-          Request Quote
+          Get Free Design Quote
         </Link>
       </div>
 

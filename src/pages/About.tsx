@@ -82,7 +82,7 @@ const About = () => (
             ))}
           </ul>
           <Link to="/quote" className="mt-10 inline-flex items-center gap-3 bg-foreground px-8 py-4 text-xs uppercase tracking-[0.28em] text-background transition-all duration-500 hover:bg-accent">
-            Request Quote <ArrowUpRight className="h-4 w-4" />
+            Get Free Design Quote <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
       </div>
