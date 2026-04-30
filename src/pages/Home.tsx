@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Award, Compass, Gem, ShieldCheck } from "lucide-react";
 import hero from "@/assets/hero-living.jpg";
 import detail from "@/assets/detail-curtains.jpg";
@@ -7,21 +9,27 @@ import { services, projects, testimonials, processSteps } from "@/data/site";
 import SectionHeader from "@/components/site/SectionHeader";
 
 const Home = () => {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-[100svh] flex items-end overflow-hidden">
-        <img
+      <section ref={heroRef} className="relative min-h-[100svh] flex items-end overflow-hidden">
+        <motion.img
           src={hero}
           alt="Luxurious modern living room with linen curtains and gypsum ceiling"
           width={1920}
           height={1280}
-          className="absolute inset-0 h-full w-full object-cover animate-scale-in"
+          style={{ scale: heroScale }}
+          className="absolute inset-0 h-full w-full object-cover will-change-transform"
         />
         <div className="absolute inset-0 bg-gradient-hero" />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-brand-charcoal/30 to-transparent" />
 
-        <div className="relative container-luxe pb-20 md:pb-28 pt-32 text-brand-ivory">
+        <motion.div style={{ opacity: heroOpacity }} className="relative container-luxe pb-20 md:pb-28 pt-32 text-brand-ivory">
           <p className="eyebrow !text-brand-ivory/70 mb-6 animate-fade-in" style={{ animationDelay: "0.2s" }}>
             Interior Design · Finishing · Fit-Out
           </p>
@@ -57,7 +65,7 @@ const Home = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* INTRO STRIP */}
