@@ -49,7 +49,9 @@ const Dashboard = () => {
     const avgScore = open.length
       ? Math.round(open.reduce((s, l) => s + l.score, 0) / open.length)
       : 0;
-    return { open: open.length, forecast, wonRevenue, overdue, avgScore };
+    const pipelineKes = open.reduce((sum, l) => sum + Number(l.estimated_revenue), 0);
+    const highTicketCount = open.filter((l) => Number(l.estimated_revenue) >= 250_000).length;
+    return { open: open.length, forecast, wonRevenue, overdue, avgScore, pipelineKes, highTicketCount };
   }, [leads]);
 
   return (
@@ -65,6 +67,29 @@ const Dashboard = () => {
           Live pipeline of qualified inquiries. Click any card to open the lead and continue the conversation.
         </p>
       </header>
+
+      <section className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border border-accent/30 bg-accent/5 px-5 py-4">
+        <div className="flex items-center gap-6 flex-wrap">
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Total leads</p>
+            <p className="font-display text-xl mt-1">{leads.length}</p>
+          </div>
+          <div className="hidden md:block h-8 w-px bg-border" />
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Pipeline value</p>
+            <p className="font-display text-xl mt-1">KES {stats.pipelineKes.toLocaleString()}</p>
+          </div>
+          <div className="hidden md:block h-8 w-px bg-border" />
+          <div>
+            <p className="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">High-ticket open</p>
+            <p className="font-display text-xl mt-1">{stats.highTicketCount}</p>
+          </div>
+        </div>
+        <div className="inline-flex items-center gap-2 self-start md:self-auto px-3 py-2 bg-accent text-accent-foreground text-[10px] uppercase tracking-[0.24em]">
+          <span className="h-1.5 w-1.5 rounded-full bg-accent-foreground animate-pulse" />
+          High Ticket Mode · Active
+        </div>
+      </section>
 
       <section className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         <Stat icon={Users} label="Open leads" value={String(stats.open)} sub={`${stats.avgScore} avg score`} />
