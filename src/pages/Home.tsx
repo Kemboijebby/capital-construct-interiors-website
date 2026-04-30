@@ -96,10 +96,12 @@ const Home = () => {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {services.slice(0, 6).map((s, i) => (
-              <article
+              <motion.article
                 key={s.slug}
+                whileHover={{ rotateY: 6, rotateX: 4, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 120 }}
+                style={{ transformStyle: "preserve-3d", animationDelay: `${i * 60}ms` }}
                 className="group bg-background p-10 transition-colors duration-500 hover:bg-foreground hover:text-background"
-                style={{ animationDelay: `${i * 60}ms` }}
               >
                 <p className="eyebrow group-hover:text-background/60 transition-colors">0{i + 1}</p>
                 <h3 className="mt-6 font-display text-3xl">{s.name}</h3>
@@ -112,7 +114,7 @@ const Home = () => {
                 >
                   Get Free Design Quote <ArrowUpRight className="h-3.5 w-3.5" />
                 </Link>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>
