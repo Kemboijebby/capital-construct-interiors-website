@@ -22,12 +22,7 @@ import { AuthProvider } from "./hooks/useAuth";
 
 const queryClient = new QueryClient();
 
-const App = () => {
-  useEffect(() => {
-    initSmoothScroll();
-  }, []);
-
-  return (
+const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -56,7 +51,14 @@ const App = () => {
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
-  );
-};
+);
 
-export default App;
+function AppWrapper() {
+  useEffect(() => {
+    initSmoothScroll();
+  }, []);
+
+  return <App />;
+}
+
+export default AppWrapper;
