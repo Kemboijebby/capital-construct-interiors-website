@@ -7,6 +7,7 @@ import detail from "@/assets/detail-curtains.jpg";
 import about from "@/assets/about-studio.jpg";
 import { services, projects, testimonials, processSteps } from "@/data/site";
 import SectionHeader from "@/components/site/SectionHeader";
+import { FadeUp } from "@/components/FadeUp";
 
 const Home = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -91,7 +92,9 @@ const Home = () => {
       <section className="bg-brand-cream/60 py-24 md:py-32">
         <div className="container-luxe">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-16">
-            <SectionHeader eyebrow="Services" title="A complete fit-out, from concept to handover." />
+            <FadeUp>
+              <SectionHeader eyebrow="Services" title="A complete fit-out, from concept to handover." />
+            </FadeUp>
             <Link to="/services" className="text-sm link-underline self-start md:self-end">All services →</Link>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
