@@ -78,10 +78,12 @@ const Home = () => {
           </h2>
         </div>
         <div className="lg:col-span-5 space-y-6">
-          <p className="text-muted-foreground leading-relaxed">
-            We design and deliver spaces that feel inevitable — restrained where it should be quiet,
-            generous where it should sing. Every project is a partnership built on trust and detail.
-          </p>
+          <FadeUp>
+            <p className="text-muted-foreground leading-relaxed">
+              We design and deliver spaces that feel inevitable — restrained where it should be quiet,
+              generous where it should sing. Every project is a partnership built on trust and detail.
+            </p>
+          </FadeUp>
           <Link to="/about" className="inline-flex text-sm tracking-wide text-foreground link-underline">
             About the studio →
           </Link>
