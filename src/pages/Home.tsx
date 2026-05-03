@@ -229,9 +229,11 @@ const Home = () => {
         <div className="absolute inset-0 bg-brand-charcoal/85" />
         <div className="relative container-luxe py-28 md:py-40 text-center text-brand-ivory">
           <p className="eyebrow !text-brand-ivory/60 mb-6">Begin</p>
-          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl mx-auto">
-            Let's design a space worth coming home to.
-          </h2>
+          <FadeUp>
+            <h2 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl mx-auto">
+              Let's design a space worth coming home to.
+            </h2>
+          </FadeUp>
           <p className="mt-8 max-w-xl mx-auto text-brand-ivory/75">
             Tell us about your project — we typically respond within one business day with a tailored proposal.
           </p>
