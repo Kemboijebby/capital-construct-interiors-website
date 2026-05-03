@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import about from "@/assets/about-studio.jpg";
 import detail from "@/assets/detail-curtains.jpg";
 import SectionHeader from "@/components/site/SectionHeader";
+import { FadeUp } from "@/components/FadeUp";
 
 const About = () => (
   <>
@@ -18,6 +19,13 @@ const About = () => (
           Founded on a belief that space shapes the way we live and work, Capital Construct Interiors is
           a multidisciplinary practice spanning design, finishing and fit-out.
         </p>
+      </div>
+      <div className="container-luxe mt-12">
+        <FadeUp>
+          <p className="text-muted-foreground max-w-2xl leading-relaxed">
+            We design and deliver spaces that feel inevitable...
+          </p>
+        </FadeUp>
       </div>
     </section>
 
