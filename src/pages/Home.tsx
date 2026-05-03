@@ -66,6 +66,14 @@ const Home = () => {
               </div>
             ))}
           </div>
+
+          <FadeUp>
+            <p className="mt-10 max-w-xl text-brand-ivory/80 leading-relaxed">
+              We transform spaces from shell to fully realized environments —
+              every detail designed, built, and executed with precision.
+              One brief. One team. One standard.
+            </p>
+          </FadeUp>
         </motion.div>
       </section>
 
