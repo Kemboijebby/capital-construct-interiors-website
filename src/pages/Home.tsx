@@ -179,7 +179,7 @@ const Home = () => {
               <Link
                 to="/projects"
                 key={p.id}
-                className="group block"
+                className="group block transition hover:scale-[1.02]"
               >
                 <div className="img-zoom aspect-[4/5] overflow-hidden">
                   <img src={p.image} alt={p.title} loading="lazy" width={1280} height={1600} className="h-full w-full object-cover" />
