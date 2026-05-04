@@ -92,6 +92,12 @@ const Home = () => {
               generous where it should sing. Every project is a partnership built on trust and detail.
             </p>
           </FadeUp>
+          <FadeUp>
+            <p className="max-w-xl text-muted-foreground">
+              We deliver fully integrated interior systems — not fragmented services —
+              ensuring consistency, quality, and control across every detail.
+            </p>
+          </FadeUp>
           <Link to="/about" className="inline-flex text-sm tracking-wide text-foreground link-underline">
             About the studio →
           </Link>
