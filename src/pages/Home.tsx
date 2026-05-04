@@ -176,6 +176,12 @@ const Home = () => {
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.05] max-w-2xl">
                 Recent transformations.
               </h2>
+              <FadeUp>
+                <p className="mt-6 text-brand-ivory/70 max-w-xl">
+                  Each project reflects a complete transformation —
+                  engineered, executed, and delivered to a consistent standard.
+                </p>
+              </FadeUp>
             </div>
             <Link to="/projects" className="text-sm text-brand-ivory/80 link-underline self-start md:self-end">All projects →</Link>
           </div>
@@ -207,6 +213,12 @@ const Home = () => {
       <section className="py-24 md:py-32">
         <div className="container-luxe">
           <SectionHeader eyebrow="Process" title="Four chapters, one vision." description="A clear, considered journey from first conversation to final handover." />
+          <FadeUp>
+            <p className="mt-6 max-w-xl text-muted-foreground">
+              Every project follows a structured process designed to eliminate uncertainty
+              and ensure precise execution from start to finish.
+            </p>
+          </FadeUp>
           <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
             {processSteps.map((s) => (
               <div key={s.n} className="bg-background p-10">
@@ -244,18 +256,19 @@ const Home = () => {
         <div className="relative container-luxe py-28 md:py-40 text-center text-brand-ivory">
           <p className="eyebrow !text-brand-ivory/60 mb-6">Begin</p>
           <FadeUp>
-            <h2 className="font-display text-4xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl mx-auto">
-              Let's design a space worth coming home to.
+            <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl mx-auto">
+              Begin Your Transformation
             </h2>
           </FadeUp>
-          <p className="mt-8 max-w-xl mx-auto text-brand-ivory/75">
-            Tell us about your project — we typically respond within one business day with a tailored proposal.
+          <p className="mt-6 text-brand-ivory/70 max-w-xl mx-auto">
+            Share your project details and we'll guide you through the next steps
+            with a tailored execution plan.
           </p>
           <Link
             to="/quote"
-            className="mt-12 inline-flex items-center gap-3 bg-brand-ivory px-10 py-5 text-xs uppercase tracking-[0.28em] text-brand-charcoal transition-all duration-500 hover:bg-accent hover:text-accent-foreground"
+            className="mt-10 inline-flex items-center gap-3 bg-brand-ivory px-10 py-5 text-xs uppercase tracking-[0.28em] text-brand-charcoal transition-all duration-500 hover:bg-accent hover:text-accent-foreground"
           >
-            Get Free Design Quote <ArrowUpRight className="h-4 w-4" />
+            Start Your Project <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
