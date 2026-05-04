@@ -27,7 +27,7 @@ All colors MUST be HSL.
     --muted: 34 15% 94%;
     --muted-foreground: 30 8% 40%;
 
-    --accent: 32 32% 56%;                /* champagne bronze */
+    --accent: 38 47% 60%;                /* champagne gold */
     --accent-foreground: 38 33% 97%;
 
     --destructive: 0 70% 45%;
@@ -43,7 +43,7 @@ All colors MUST be HSL.
     --brand-ivory: 0 0% 95%;
     --brand-cream: 35 32% 93%;
     --brand-stone: 32 12% 78%;
-    --brand-bronze: 32 32% 56%;
+    --brand-bronze: 38 47% 60%;
     --brand-bronze-deep: 28 38% 38%;
     --brand-charcoal: 0 0% 7%;
 
