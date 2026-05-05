@@ -44,7 +44,7 @@ export const scoreTone = (score: number) => {
 
 export const buildWhatsAppLink = (phone: string | null | undefined, message: string) => {
   const digits = (phone || "").replace(/[^\d]/g, "");
-  const target = digits || "15550102200";
+  const target = digits || "254722460838";
   return `https://wa.me/${target}?text=${encodeURIComponent(message)}`;
 };
 

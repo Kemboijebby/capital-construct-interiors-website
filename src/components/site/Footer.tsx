@@ -32,9 +32,9 @@ const Footer = () => (
       <div>
         <h4 className="eyebrow !text-brand-ivory/60 mb-5">Contact</h4>
         <ul className="space-y-3 text-sm text-brand-ivory/80">
-          <li className="flex items-start gap-3"><Phone className="h-4 w-4 mt-0.5 text-accent" /> +1 (555) 010 2200</li>
-          <li className="flex items-start gap-3"><Mail className="h-4 w-4 mt-0.5 text-accent" /> hello@capitalconstruct.co</li>
-          <li className="flex items-start gap-3"><MapPin className="h-4 w-4 mt-0.5 text-accent" /> Studio 14, Design District</li>
+          <li className="flex items-start gap-3"><Phone className="h-4 w-4 mt-0.5 text-accent" /> +254 722 460 838</li>
+          <li className="flex items-start gap-3"><Mail className="h-4 w-4 mt-0.5 text-accent break-all" /> Capitalconstructdesign@gmail.com</li>
+          <li className="flex items-start gap-3"><MapPin className="h-4 w-4 mt-0.5 text-accent" /> Nairobi, Kenya · By Appointment</li>
         </ul>
         <div className="mt-6 flex items-center gap-4 text-brand-ivory/70">
           <a aria-label="Instagram" href="#" className="hover:text-accent transition-colors"><Instagram className="h-4 w-4" /></a>

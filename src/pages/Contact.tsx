@@ -1,7 +1,7 @@
 import { Phone, Mail, MapPin, MessageCircle, Instagram, Facebook, Linkedin, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
-const WHATSAPP = "15550102200";
+const WHATSAPP = "254722460838";
 
 const Contact = () => (
   <>
@@ -16,9 +16,9 @@ const Contact = () => (
 
     <section className="container-luxe pb-24 md:pb-32 grid lg:grid-cols-3 gap-px bg-border border border-border">
       {[
-        { icon: Phone, label: "Phone", value: "+1 (555) 010 2200", href: "tel:+15550102200" },
+        { icon: Phone, label: "Phone", value: "+254 722 460 838", href: "tel:+254722460838" },
         { icon: MessageCircle, label: "WhatsApp", value: "Chat with the studio", href: `https://wa.me/${WHATSAPP}` },
-        { icon: Mail, label: "Email", value: "hello@capitalconstruct.co", href: "mailto:hello@capitalconstruct.co" },
+        { icon: Mail, label: "Email", value: "Capitalconstructdesign@gmail.com", href: "mailto:Capitalconstructdesign@gmail.com" },
       ].map(({ icon: Icon, label, value, href }) => (
         <a key={label} href={href} className="group bg-background p-10 transition-colors duration-500 hover:bg-foreground hover:text-background">
           <Icon className="h-6 w-6 text-accent" />
@@ -37,7 +37,7 @@ const Contact = () => (
           <p className="eyebrow mb-5">Studio</p>
           <h2 className="font-display text-4xl md:text-5xl leading-[1.05]">Visit by appointment.</h2>
           <p className="mt-6 text-muted-foreground leading-relaxed max-w-md">
-            Studio 14, Design District<br />
+            Nairobi, Kenya · By Appointment<br />
             Open Monday – Friday, 9am – 6pm<br />
             Saturday by appointment
           </p>
