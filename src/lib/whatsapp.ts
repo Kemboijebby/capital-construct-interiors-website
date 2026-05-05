@@ -1,4 +1,4 @@
-const WHATSAPP = "15550102200";
+const WHATSAPP = "254722460838";
 
 export const sendWhatsApp = (message: string) => {
   const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;

@@ -7,49 +7,64 @@ import reception from "@/assets/project-reception.jpg";
 
 export const services = [
   {
-    slug: "interior-finishing",
-    name: "Interior Finishing",
-    summary: "Refined surfaces, joinery and details executed to architectural standard.",
+    slug: "wainscoting-panelling",
+    name: "Wainscoting & Panelling",
+    summary: "Architectural wall detailing in timber and moulded profiles, crafted to last.",
   },
   {
-    slug: "office-fit-outs",
-    name: "Office Fit-Outs",
+    slug: "curtains-blinds",
+    name: "Curtains & Blinds",
+    summary: "Custom drapery, sheers and motorised blinds tailored to every opening.",
+  },
+  {
+    slug: "kitchen-fit-out",
+    name: "Kitchen Fit Out",
+    summary: "Bespoke kitchens engineered for performance, storage and quiet luxury.",
+  },
+  {
+    slug: "tiles-flooring",
+    name: "Tiles & Flooring",
+    summary: "Stone, porcelain and engineered timber laid with precision and craft.",
+  },
+  {
+    slug: "wall-to-wall-carpets",
+    name: "Wall to Wall Carpets",
+    summary: "Premium broadloom and woven carpets fitted seamlessly across every room.",
+  },
+  {
+    slug: "tv-units",
+    name: "TV Units",
+    summary: "Bespoke media walls and joinery that anchor the living space.",
+  },
+  {
+    slug: "feature-walls",
+    name: "Feature Walls",
+    summary: "Statement surfaces in stone, timber, fluted panel and textured plaster.",
+  },
+  {
+    slug: "false-ceilings",
+    name: "False Ceilings",
+    summary: "Sculpted gypsum ceilings with integrated cove and recessed lighting.",
+  },
+  {
+    slug: "office-interiors",
+    name: "Office Interiors",
     summary: "Workplace environments built for performance, brand and wellbeing.",
   },
   {
-    slug: "gypsum-ceilings",
-    name: "Gypsum Ceiling Design",
-    summary: "Sculpted ceilings with integrated cove and recessed lighting.",
+    slug: "built-in-joinery",
+    name: "Built-in Joinery",
+    summary: "Wardrobes, cabinetry and storage tailored to the architecture.",
   },
   {
-    slug: "curtains-sheers",
-    name: "Curtains & Sheers",
-    summary: "Custom drapery in linen, velvet and silk — tailored to every window.",
+    slug: "lighting-design",
+    name: "Lighting Design",
+    summary: "Layered schemes that elevate every architectural detail.",
   },
   {
-    slug: "office-blinds",
-    name: "Office Blinds",
-    summary: "Roller, roman and motorised blinds engineered for executive interiors.",
-  },
-  {
-    slug: "wallpapers",
-    name: "Wallpapers",
-    summary: "Curated wallcoverings — from textured neutrals to statement murals.",
-  },
-  {
-    slug: "renovations",
-    name: "Renovations",
-    summary: "Considered transformations of existing homes and commercial spaces.",
-  },
-  {
-    slug: "space-planning",
-    name: "Space Planning",
-    summary: "Thoughtful layouts that balance flow, function and atmosphere.",
-  },
-  {
-    slug: "lighting",
-    name: "Ceiling & Lighting Enhancements",
-    summary: "Layered lighting schemes that elevate every architectural detail.",
+    slug: "full-renovations",
+    name: "Full Renovations",
+    summary: "Complete transformations from shell to finished, fully realised space.",
   },
 ];
 

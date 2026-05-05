@@ -22,7 +22,7 @@ const servicesList = [
   "Office Blinds", "Wallpapers", "Renovation", "Space Planning", "Lighting", "Other",
 ];
 
-const WHATSAPP = "15550102200";
+const WHATSAPP = "254722460838";
 
 const fieldClass =
   "w-full bg-transparent border-b border-border focus:border-accent outline-none py-3 text-foreground placeholder:text-muted-foreground/70 transition-colors";
