@@ -28,18 +28,21 @@ const LusionSection = () => {
       <motion.img
         src={img1}
         alt=""
+        loading="lazy"
         style={{ y: y1 }}
         className="absolute left-[6%] top-[8%] w-[28%] aspect-[3/4] object-cover opacity-70 will-change-transform hidden md:block"
       />
       <motion.img
         src={img2}
         alt=""
+        loading="lazy"
         style={{ y: y2 }}
         className="absolute right-[8%] top-[20%] w-[24%] aspect-[4/5] object-cover opacity-60 will-change-transform hidden md:block"
       />
       <motion.img
         src={img3}
         alt=""
+        loading="lazy"
         style={{ y: y3 }}
         className="absolute left-[18%] bottom-[6%] w-[22%] aspect-[4/5] object-cover opacity-50 will-change-transform hidden lg:block"
       />
