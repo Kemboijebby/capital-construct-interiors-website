@@ -9,6 +9,7 @@ import { services, projects, testimonials, processSteps } from "@/data/site";
 import SectionHeader from "@/components/site/SectionHeader";
 import { FadeUp } from "@/components/FadeUp";
 import LusionSection from "@/components/site/LusionSection";
+import MansionReveal from "@/components/site/MansionReveal";
 
 const Home = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -211,6 +212,8 @@ const Home = () => {
       </section>
 
       <LusionSection />
+
+      <MansionReveal />
 
       {/* PROCESS */}
       <section className="py-24 md:py-32">
