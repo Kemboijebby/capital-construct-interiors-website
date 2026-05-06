@@ -80,6 +80,16 @@ const Quote = () => {
             considered next steps and a tailored proposal.
           </p>
 
+          <p className="text-sm text-muted-foreground mt-4">
+            We typically take on full interior transformations rather than isolated installations.
+          </p>
+          <p className="text-xs text-muted-foreground mt-2">
+            Response within 1 business day.
+          </p>
+          <p className="text-xs tracking-widest text-accent uppercase">
+            Nairobi · By Appointment
+          </p>
+
           <a
             href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hi Capital Construct Interiors, I'm interested in a premium interior design project. I'd like a quote and consultation for my space.")}`}
             target="_blank"
