@@ -210,6 +210,8 @@ const Home = () => {
         </div>
       </section>
 
+      <LusionSection />
+
       {/* PROCESS */}
       <section className="py-24 md:py-32">
         <div className="container-luxe">
