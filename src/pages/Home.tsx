@@ -8,6 +8,7 @@ import about from "@/assets/about-studio.jpg";
 import { services, projects, testimonials, processSteps } from "@/data/site";
 import SectionHeader from "@/components/site/SectionHeader";
 import { FadeUp } from "@/components/FadeUp";
+import LusionSection from "@/components/site/LusionSection";
 
 const Home = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -208,6 +209,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <LusionSection />
 
       {/* PROCESS */}
       <section className="py-24 md:py-32">
