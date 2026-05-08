@@ -23,6 +23,7 @@ import {
   scoreTone,
   stageAccent,
 } from "@/lib/crm";
+import { salesSequence } from "@/lib/whatsapp";
 import type { Database } from "@/integrations/supabase/types";
 
 type Lead = Database["public"]["Tables"]["leads"]["Row"];
@@ -327,6 +328,39 @@ const LeadDetail = () => {
             >
               <Trash2 className="h-3 w-3" /> Delete lead
             </button>
+          </section>
+
+          <section className="border border-border bg-card p-6">
+            <p className="eyebrow">Sales sequence</p>
+            <p className="text-[11px] text-muted-foreground mt-2 leading-relaxed">
+              5-stage follow-up cadence. Tap a stage to open WhatsApp with the message ready.
+            </p>
+            <ul className="mt-4 space-y-2">
+              {salesSequence.map((s) => {
+                const firstName = lead.name.split(" ")[0];
+                const link = buildWhatsAppLink(lead.phone, s.message(firstName));
+                return (
+                  <li key={s.key}>
+                    <a
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group block border border-border/60 p-3 hover:border-accent transition-colors"
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="text-[11px] uppercase tracking-[0.18em] text-foreground group-hover:text-accent transition-colors">
+                          {s.label}
+                        </span>
+                        <MessageCircle className="h-3 w-3 text-muted-foreground group-hover:text-accent transition-colors" />
+                      </div>
+                      <p className="text-[10px] uppercase tracking-[0.22em] text-muted-foreground mt-1">
+                        {s.timing} · {s.hint}
+                      </p>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
           </section>
 
           {saving && (
