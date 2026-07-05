@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 
 import doorLeft from "@/assets/door-left.png";
 import doorRight from "@/assets/door-right.png";
@@ -7,15 +7,25 @@ import interior from "@/assets/hero-living.jpg";
 
 const MansionReveal = () => {
   const ref = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const m = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(m.matches);
+    update();
+    m.addEventListener("change", update);
+    return () => m.removeEventListener("change", update);
+  }, []);
+  const enable = isDesktop && !reduce;
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  const leftX = useTransform(scrollYProgress, [0.2, 0.6], ["0%", "-120%"]);
-  const rightX = useTransform(scrollYProgress, [0.2, 0.6], ["0%", "120%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
+  const leftX = useTransform(scrollYProgress, [0.2, 0.6], ["0%", enable ? "-120%" : "-100%"]);
+  const rightX = useTransform(scrollYProgress, [0.2, 0.6], ["0%", enable ? "120%" : "100%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, enable ? 1.05 : 1]);
   const opacity = useTransform(scrollYProgress, [0.5, 0.8], [0, 1]);
 
   return (
