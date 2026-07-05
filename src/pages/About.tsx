@@ -11,17 +11,17 @@ const About = () => (
     <section className="pt-40 pb-20 md:pt-48 md:pb-28">
       <div className="container-luxe grid lg:grid-cols-12 gap-12 items-end">
         <div className="lg:col-span-8">
-          <FadeUp duration={0.9}>
+          <FadeUp>
             <p className="eyebrow mb-6">About the Studio</p>
           </FadeUp>
-          <FadeUp delay={0.12} duration={1.2} y={36}>
+          <FadeUp>
             <h1 className="font-display text-5xl md:text-7xl leading-[1.02]">
               A studio devoted to <em className="not-italic text-accent">quiet luxury</em> and uncompromising craft.
             </h1>
           </FadeUp>
         </div>
         <div className="lg:col-span-4">
-          <FadeUp delay={0.3} duration={1.1}>
+          <FadeUp>
             <p className="text-muted-foreground leading-relaxed">
               Founded on a belief that space shapes the way we live and work, Capital Construct Interiors is
               a multidisciplinary practice spanning design, finishing and fit-out.
@@ -30,7 +30,7 @@ const About = () => (
         </div>
       </div>
       <div className="container-luxe mt-12">
-        <FadeUp delay={0.15}>
+        <FadeUp>
           <p className="text-muted-foreground max-w-2xl leading-relaxed">
             We design and deliver spaces that feel inevitable...
           </p>
@@ -40,10 +40,10 @@ const About = () => (
 
     <section className="container-luxe pb-24">
       <motion.div
-        initial={{ opacity: 0, scale: 1.06 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-        viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        viewport={{ once: true }}
         className="img-zoom aspect-[16/8] overflow-hidden"
       >
         <img src={about} alt="Designer reviewing plans in studio" className="h-full w-full object-cover" loading="lazy" width={1600} height={1280} />
