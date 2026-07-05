@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Award, Compass, Gem, ShieldCheck } from "lucide-react";
 import hero from "@/assets/hero-living.jpg";
 import detail from "@/assets/detail-curtains.jpg";
@@ -13,31 +13,21 @@ import MansionReveal from "@/components/site/MansionReveal";
 
 const Home = () => {
   const heroRef = useRef<HTMLElement>(null);
-  const reduce = useReducedMotion();
-  const [isDesktop, setIsDesktop] = useState(false);
-  useEffect(() => {
-    const m = window.matchMedia("(min-width: 768px)");
-    const update = () => setIsDesktop(m.matches);
-    update();
-    m.addEventListener("change", update);
-    return () => m.removeEventListener("change", update);
-  }, []);
-  const enableParallax = isDesktop && !reduce;
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroScale = useTransform(scrollYProgress, [0, 1], [1, enableParallax ? 1.08 : 1]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   return (
     <>
       {/* HERO */}
       <section ref={heroRef} className="relative min-h-[100svh] flex items-end overflow-hidden">
-        <motion.img
+        <img
           src={hero}
           alt="Luxurious modern living room with linen curtains and gypsum ceiling"
           width={1920}
           height={1280}
-          style={{ scale: heroScale }}
-          className="absolute inset-0 h-full w-full object-cover will-change-transform"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-hero" />
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-brand-charcoal/30 to-transparent" />
