@@ -12,18 +12,14 @@ type FadeUpProps = {
 export const FadeUp = ({
   children,
   delay = 0,
-  y = 28,
-  duration = 1.1,
+  y = 16,
+  duration = 0.5,
 }: FadeUpProps) => (
   <motion.div
-    initial={{ opacity: 0, y, filter: "blur(6px)" }}
-    whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-    transition={{
-      duration,
-      delay,
-      ease: [0.22, 1, 0.36, 1],
-    }}
-    viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
+    initial={{ opacity: 0, y }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
+    viewport={{ once: true, margin: "0px 0px -15% 0px" }}
   >
     {children}
   </motion.div>
