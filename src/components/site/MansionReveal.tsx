@@ -1,71 +1,51 @@
-import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
 import doorLeft from "@/assets/door-left.png";
 import doorRight from "@/assets/door-right.png";
 import interior from "@/assets/hero-living.jpg";
 
 const MansionReveal = () => {
-  const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
-  const [isDesktop, setIsDesktop] = useState(false);
-  useEffect(() => {
-    const m = window.matchMedia("(min-width: 768px)");
-    const update = () => setIsDesktop(m.matches);
-    update();
-    m.addEventListener("change", update);
-    return () => m.removeEventListener("change", update);
-  }, []);
-  const enable = isDesktop && !reduce;
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const leftX = useTransform(scrollYProgress, [0.2, 0.6], ["0%", enable ? "-120%" : "-100%"]);
-  const rightX = useTransform(scrollYProgress, [0.2, 0.6], ["0%", enable ? "120%" : "100%"]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, enable ? 1.05 : 1]);
-  const opacity = useTransform(scrollYProgress, [0.5, 0.8], [0, 1]);
-
+  const ease = [0.22, 1, 0.36, 1] as const;
   return (
-    <section
-      ref={ref}
-      className="relative h-[100svh] overflow-hidden bg-brand-charcoal text-brand-ivory"
-    >
-      {/* Interior */}
-      <motion.img
+    <section className="relative h-[100svh] overflow-hidden bg-brand-charcoal text-brand-ivory">
+      <img
         src={interior}
         alt="Fully realized luxury interior"
         loading="lazy"
-        style={{ scale }}
-        className="absolute inset-0 h-full w-full object-cover will-change-transform"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover"
       />
-
-      {/* Dark overlay */}
       <div className="absolute inset-0 bg-brand-charcoal/55" />
 
-      {/* Left Door */}
       <motion.img
         src={doorLeft}
         alt=""
         loading="lazy"
-        style={{ x: leftX }}
-        className="absolute left-0 top-0 h-full w-1/2 object-cover object-right will-change-transform z-10"
+        decoding="async"
+        initial={{ x: reduce ? "-100%" : "0%" }}
+        whileInView={{ x: "-100%" }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: reduce ? 0 : 0.9, ease }}
+        className="absolute left-0 top-0 h-full w-1/2 object-cover object-right z-10 will-change-transform"
       />
-
-      {/* Right Door */}
       <motion.img
         src={doorRight}
         alt=""
         loading="lazy"
-        style={{ x: rightX }}
-        className="absolute right-0 top-0 h-full w-1/2 object-cover object-left will-change-transform z-10"
+        decoding="async"
+        initial={{ x: reduce ? "100%" : "0%" }}
+        whileInView={{ x: "100%" }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: reduce ? 0 : 0.9, ease }}
+        className="absolute right-0 top-0 h-full w-1/2 object-cover object-left z-10 will-change-transform"
       />
 
-      {/* Content */}
       <motion.div
-        style={{ opacity }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.6, delay: reduce ? 0 : 0.5, ease }}
         className="relative z-20 h-full flex items-center justify-center"
       >
         <div className="container-luxe text-center">
