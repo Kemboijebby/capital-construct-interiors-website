@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 import about from "@/assets/about-studio.jpg";
 import detail from "@/assets/detail-curtains.jpg";
 import SectionHeader from "@/components/site/SectionHeader";
@@ -10,18 +11,26 @@ const About = () => (
     <section className="pt-40 pb-20 md:pt-48 md:pb-28">
       <div className="container-luxe grid lg:grid-cols-12 gap-12 items-end">
         <div className="lg:col-span-8">
-          <p className="eyebrow mb-6 animate-fade-in">About the Studio</p>
-          <h1 className="font-display text-5xl md:text-7xl leading-[1.02] animate-fade-in" style={{ animationDelay: "0.15s" }}>
-            A studio devoted to <em className="not-italic text-accent">quiet luxury</em> and uncompromising craft.
-          </h1>
+          <FadeUp duration={0.9}>
+            <p className="eyebrow mb-6">About the Studio</p>
+          </FadeUp>
+          <FadeUp delay={0.12} duration={1.2} y={36}>
+            <h1 className="font-display text-5xl md:text-7xl leading-[1.02]">
+              A studio devoted to <em className="not-italic text-accent">quiet luxury</em> and uncompromising craft.
+            </h1>
+          </FadeUp>
         </div>
-        <p className="lg:col-span-4 text-muted-foreground leading-relaxed animate-fade-in" style={{ animationDelay: "0.3s" }}>
-          Founded on a belief that space shapes the way we live and work, Capital Construct Interiors is
-          a multidisciplinary practice spanning design, finishing and fit-out.
-        </p>
+        <div className="lg:col-span-4">
+          <FadeUp delay={0.3} duration={1.1}>
+            <p className="text-muted-foreground leading-relaxed">
+              Founded on a belief that space shapes the way we live and work, Capital Construct Interiors is
+              a multidisciplinary practice spanning design, finishing and fit-out.
+            </p>
+          </FadeUp>
+        </div>
       </div>
       <div className="container-luxe mt-12">
-        <FadeUp>
+        <FadeUp delay={0.15}>
           <p className="text-muted-foreground max-w-2xl leading-relaxed">
             We design and deliver spaces that feel inevitable...
           </p>
@@ -30,9 +39,15 @@ const About = () => (
     </section>
 
     <section className="container-luxe pb-24">
-      <div className="img-zoom aspect-[16/8] overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0, scale: 1.06 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
+        className="img-zoom aspect-[16/8] overflow-hidden"
+      >
         <img src={about} alt="Designer reviewing plans in studio" className="h-full w-full object-cover" loading="lazy" width={1600} height={1280} />
-      </div>
+      </motion.div>
     </section>
 
     <section className="container-luxe py-24 md:py-32 grid lg:grid-cols-2 gap-16">
