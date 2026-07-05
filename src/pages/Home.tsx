@@ -1,6 +1,6 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, Award, Compass, Gem, ShieldCheck } from "lucide-react";
 import hero from "@/assets/hero-living.jpg";
 import detail from "@/assets/detail-curtains.jpg";
@@ -13,8 +13,18 @@ import MansionReveal from "@/components/site/MansionReveal";
 
 const Home = () => {
   const heroRef = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const m = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(m.matches);
+    update();
+    m.addEventListener("change", update);
+    return () => m.removeEventListener("change", update);
+  }, []);
+  const enableParallax = isDesktop && !reduce;
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, enableParallax ? 1.08 : 1]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   return (
@@ -117,12 +127,9 @@ const Home = () => {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
             {services.slice(0, 6).map((s, i) => (
-              <motion.article
+              <article
                 key={s.slug}
-                whileHover={{ rotateY: 6, rotateX: 4, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 120 }}
-                style={{ transformStyle: "preserve-3d", animationDelay: `${i * 60}ms` }}
-                className="group bg-background p-10 transition-colors duration-500 hover:bg-foreground hover:text-background"
+                className="group bg-background p-10 transition-colors duration-300 hover:bg-foreground hover:text-background"
               >
                 <p className="eyebrow group-hover:text-background/60 transition-colors">0{i + 1}</p>
                 <h3 className="mt-6 font-display text-3xl">{s.name}</h3>
@@ -135,7 +142,7 @@ const Home = () => {
                 >
                   Get Free Design Quote <ArrowUpRight className="h-3.5 w-3.5" />
                 </Link>
-              </motion.article>
+              </article>
             ))}
           </div>
         </div>

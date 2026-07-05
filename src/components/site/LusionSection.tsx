@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 
 import img1 from "@/assets/hero-living.jpg";
 import img2 from "@/assets/project-office.jpg";
@@ -7,16 +7,25 @@ import img3 from "@/assets/project-bedroom.jpg";
 
 const LusionSection = () => {
   const ref = useRef<HTMLElement>(null);
+  const reduce = useReducedMotion();
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const m = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(m.matches);
+    update();
+    m.addEventListener("change", update);
+    return () => m.removeEventListener("change", update);
+  }, []);
+  const enable = isDesktop && !reduce;
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -80]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, -140]);
-  const y3 = useTransform(scrollYProgress, [0, 1], [0, -200]);
-
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, enable ? -60 : 0]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, enable ? -100 : 0]);
+  const y3 = useTransform(scrollYProgress, [0, 1], [0, enable ? -140 : 0]);
   const opacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1]);
 
   return (
